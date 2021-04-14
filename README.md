@@ -5,4 +5,4 @@ Abstract: We will assess the outcomes for each county in CA for Covid-19 infecti
 
 ## Table of Contents
 
-- [notebook1](notebooks/notebook1.ipynb): descriptions
+- [Covariate Exploratory Data Analysis](notebooks/weekly_data_EDA.ipynb): Includes scatter plots of the weekly data, to see the impact of demographic variables on positive proportion
