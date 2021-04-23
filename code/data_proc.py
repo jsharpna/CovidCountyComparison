@@ -6,6 +6,9 @@ def read_jhu_conf(file_loc = '../data/time_series_covid19_confirmed_US.csv'):
     :param file_loc: file location
     :return: DataFrame of confirmed case counts
     """
+    confirmed = pd.read_csv(file_loc)
+    date_cols = confirmed.columns[11:]
+    
     return None
 
 def read_jhu_death(file_loc = '../data/time_series_covid19_deaths_US.csv'):
