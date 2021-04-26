@@ -19,11 +19,15 @@ def read_jhu_death(file_loc = '../data/time_series_covid19_deaths_US.csv'):
     """
     return None
 
-def read_cdph_test(file_loc = '../data/tbl2_testing_agg_March_12_2021.xlsx'):
+def read_cdph_test(file_loc = '../data/CDPH_testing_data_4_24.xlsx',
+                   county_name_file = '../data/county_names.csv'):
     test_data = pd.read_excel(file_loc)
     test_data['county'] = test_data['county'].str.lower()
     test_data = test_data.dropna(subset=['county'])
     test_data['county'].str.split(',')
     test_data['county'] = [c[0] for c in test_data['county'].str.split(',')]
-    
-    return None
+    county_names = pd.read_csv(county_name_file, dtype=str)
+    county_names['County'] = county_names['County'].str.lower()
+    county_names = county_names.set_index('County')
+    test_data = test_data.join(county_names,on='county')
+    return test_data
