@@ -25,4 +25,5 @@ def read_cdph_test(file_loc = '../data/tbl2_testing_agg_March_12_2021.xlsx'):
     test_data = test_data.dropna(subset=['county'])
     test_data['county'].str.split(',')
     test_data['county'] = [c[0] for c in test_data['county'].str.split(',')]
+    
     return None
